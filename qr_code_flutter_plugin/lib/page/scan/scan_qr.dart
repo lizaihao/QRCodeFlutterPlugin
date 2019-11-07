@@ -47,19 +47,18 @@ class _ScanQR extends State<ScanQR>
       case AppLifecycleState.inactive: //前后台切换都执行
         break;
       case AppLifecycleState.paused: //前台到后台
+        //需处理onPaused需知执行的，即相机资源释放
         _scanViewController.closeAutoFlash();
         setState(() {
           _clickBool = !_clickBool;
         });
-        debugPrint("closeAutoFlash00000000000");
         if (ModalRoute.of(context).isCurrent) {
-          debugPrint("closeAutoFlash1111111111111111111");
           _scanViewController.stopScan();
         }
         break;
       case AppLifecycleState.resumed: //后台到前台
+      //需处理onResumed需知执行的，即相机资源重新获取
         if (ModalRoute.of(context).isCurrent) {
-          debugPrint("closeAutoFlash11111111111112222");
           _scanViewController.restartScan();
         }
         break;

@@ -38,12 +38,11 @@ public class FlutterScanView implements PlatformView {
                 }
             }
         });
-        mMethodChannel = new MethodChannel(messenger, "paff_scan_method_"+id);
+        mMethodChannel = new MethodChannel(messenger, "scan_method_"+id);
         mMethodChannel.setMethodCallHandler(new InputMethodCallHandler());
 
         eventChannelUtils = EventChannelUtils.getInstance();
-        eventChannelUtils.setmEventChannel(new EventChannel(messenger, "paff_scan_event_"+id));
-        //mEventChannel = new EventChannel(messenger, "paff_scan_event_"+id);
+        eventChannelUtils.setmEventChannel(new EventChannel(messenger, "scan_event_"+id));
     }
 
 

@@ -23,8 +23,8 @@ class ScanView extends StatefulWidget {
 
 class ScanViewController {
   ScanViewController._(int id)
-      : _methodChannel = new MethodChannel('paff_scan_method_$id'),
-        _eventChannel = new EventChannel('paff_scan_event_$id');
+      : _methodChannel = new MethodChannel('scan_method_$id'),
+        _eventChannel = new EventChannel('scan_event_$id');
 
   final MethodChannel _methodChannel;
   final EventChannel _eventChannel;
